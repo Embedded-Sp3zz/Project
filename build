@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Compiling All Project Files"
+g++ publish.cpp -o publish -lpaho-mqtt3c
+g++ publish_bareleus.cpp -o publish_bareleus -lpaho-mqtt3c
+g++ publish_Bentan01.cpp -o publish_Bentan01 -lpaho-mqtt3c
+g++ publish_JoshuaRyan99.cpp -o publish_JoshuaRyan99 -lpaho-mqtt3c
+g++ publish_anhprotien588.cpp -o publish_anhprotien588 -lpaho-mqtt3c
+g++ publish_digital_input.cpp -o publish_digital_input -lpaho-mqtt3c
+g++ subscribe.cpp -o subscribe -lpaho-mqtt3c
+g++ subscribe_digital_output.cpp -o subscribe_digital_output -lpaho-mqtt3c
+echo "Compilation Compelete"
+echo "Configuring GPIO pin p9.12 to gpio (output) and p8.16 to gpio_pu (input)"
+config-pin p9.12 gpio
+echo out > /sys/class/gpio/gpio60/direction
+config-pin p8.16 gpio_pu
+echo in > /sys/class/gpio/gpio46/direction
+echo "Build Complete"
